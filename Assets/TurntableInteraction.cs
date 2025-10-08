@@ -22,7 +22,7 @@ public class TurntableInteraction : MonoBehaviour
         if (PlayOnStartup) ChangeTurntable();
     }
 
-    private IEnumerator MoveHandle(GameObject handle, GameObject handleOrigin, float duration, Quaternion targetRot)
+    private IEnumerator MoveHandle(GameObject handle, GameObject handleOrigin, float duration, float targetRot)
     {
         Quaternion startRot = handle.transform.rotation;
         float elapsedTime = 0f;
@@ -30,11 +30,9 @@ public class TurntableInteraction : MonoBehaviour
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            handle.transform.rotation = Quaternion.Lerp(startRot, targetRot, elapsedTime / duration);
+            handle.transform.RotateAround(handleOrigin.transform.position, Vector3.up, targetRot * Time.deltaTime);
             yield return null;
         }
-
-        handle.transform.rotation = targetRot; // Ensure final rotation is exact
 
        
     }
@@ -43,21 +41,30 @@ public class TurntableInteraction : MonoBehaviour
     {
         if (timeSinceLastInteraction + animationDelay < Time.time)
         {
-            isPlaying = !isPlaying;
+            
 
-            if (isPlaying)
+            if (!isPlaying)
             {
                 a.Play();
-                MoveHandle(handle, handleOrigin, 1.0f, new Quaternion(0f, 35f, 0f, 0f));
+                StartCoroutine(MoveHandle(handle, handleOrigin, 1.0f, 50f));
             }
             else
             {
                 a.Pause();
+                StartCoroutine(MoveHandle(handle, handleOrigin, 1.0f, -50f));
             }
 
             timeSinceLastInteraction = Time.time;
+
+            isPlaying = !isPlaying;
         }
     }
 
-    
+    private void Update()
+    {
+        if (isPlaying)
+        {
+            record.transform.Rotate(new Vector3(0f, (35f * Time.deltaTime), 0f));
+        }
+    }
 }
