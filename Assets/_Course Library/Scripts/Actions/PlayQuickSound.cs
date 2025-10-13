@@ -15,13 +15,17 @@ public class PlayQuickSound : MonoBehaviour
     [Tooltip("The range of pitch the sound is played at (-pitch, pitch)")]
     [Range(0, 1)] public float randomPitchVariance = 0.0f;
 
-    private AudioSource audioSource = null;
+    public AudioSource audioSource;
 
     private float defaultPitch = 1.0f;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) 
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        
     }
 
     public void Play()
