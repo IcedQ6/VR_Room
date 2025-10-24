@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7364754443877226828}
   - component: {fileID: 5078207992731249092}
+  - component: {fileID: -8054444959487964318}
   m_Layer: 0
   m_Name: blow up
   m_TagString: Untagged
@@ -128,3 +129,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8054444959487964318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9112929077362024680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e917dfee4292b444a9a596f0b98e801f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bu: {fileID: 0}
+  delay: 0
