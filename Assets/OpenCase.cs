@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class OpenCase : MonoBehaviour
 {
+    [Tooltip(("Objects that will be rotated."))]
+    public GameObject[] objectsToRotate;
+
+    [Tooltip("Hinge to rotate the object(s)")]
+    public GameObject rotationPoint;
+    
     [Tooltip("The total degrees to rotate.")]
     public float rotationAmount = 90.0f;
 
@@ -17,9 +23,7 @@ public class OpenCase : MonoBehaviour
     private bool isRotating = false;
     private Coroutine rotationCoroutine;
     
-    /// <summary>
-    /// This is the public function you call to start the rotation.
-    /// </summary>
+    // Public function to call rotation
     public void StartRotation()
     {
         // Prevent starting a new rotation if one is already in progress
@@ -29,9 +33,8 @@ public class OpenCase : MonoBehaviour
         }
     }
 
-    /// <summary>
+
     /// Coroutine to handle the rotation over a set duration.
-    /// </summary>
     private IEnumerator RotateOverTime()
     {
         // Set the rotating flag to true
@@ -43,6 +46,8 @@ public class OpenCase : MonoBehaviour
         // Calculate the target rotation
         // We multiply the start rotation by a new rotation based on our axis and amount
         Quaternion targetRotation = startRotation * Quaternion.AngleAxis(rotationAmount, rotationAxis.normalized);
+        
+        // Store the point for the object(s) to rotate around
 
         float elapsedTime = 0f;
 
