@@ -40,16 +40,14 @@ public class OpenCase : MonoBehaviour
         // Set the rotating flag to true
         isRotating = true;
 
-        // Store the starting rotation
-        Quaternion startRotation = transform.rotation;
-
-        // Calculate the target rotation
-        // We multiply the start rotation by a new rotation based on our axis and amount
-        Quaternion targetRotation = startRotation * Quaternion.AngleAxis(rotationAmount, rotationAxis.normalized);
-        
-        // Store the point for the object(s) to rotate around
+        // --- START: MODIFIED LOGIC ---
 
         float elapsedTime = 0f;
+        float currentAngle = 0f; // Track how much we've rotated so far
+
+        // Get the pivot point and axis *once*
+        Vector3 pivotPoint = rotationPoint.transform.position;
+        Vector3 axis = rotationAxis.normalized;
 
         // Loop until the elapsed time is greater than or equal to the duration
         while (elapsedTime < duration)
@@ -60,18 +58,41 @@ public class OpenCase : MonoBehaviour
             // Optional: Add easing for a smoother effect (e.g., "SmoothStep")
             // t = t * t * (3f - 2f * t);
 
-            // Slerp (Spherical Linear Interpolation) from start to target rotation
-            transform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
+            // Calculate what our target angle should be at this specific moment
+            float targetAngleThisFrame = Mathf.Lerp(0, rotationAmount, t);
+            
+            // Calculate the small angle to rotate *this frame* to catch up
+            float deltaAngle = targetAngleThisFrame - currentAngle;
+
+            // Iterate through all objects and rotate them around the pivot
+            foreach (GameObject obj in objectsToRotate)
+            {
+                if (obj != null)
+                {
+                    obj.transform.RotateAround(pivotPoint, axis, deltaAngle);
+                }
+            }
 
             // Wait for the next frame
             elapsedTime += Time.deltaTime;
+            // Update our current angle
+            currentAngle = targetAngleThisFrame; 
             yield return null;
         }
 
         // --- Rotation complete ---
 
-        // Snap to the final target rotation to ensure 100% accuracy
-        transform.rotation = targetRotation;
+        // Snap to the final target angle to ensure 100% accuracy
+        float finalDelta = rotationAmount - currentAngle;
+        foreach (GameObject obj in objectsToRotate)
+        {
+            if (obj != null)
+            {
+                obj.transform.RotateAround(pivotPoint, axis, finalDelta);
+            }
+        }
+
+        // --- END: MODIFIED LOGIC ---
 
         // Reset the flag
         isRotating = false;
