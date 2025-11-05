@@ -1,98 +1,87 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script rotates its own transform between an "open" and "closed" state.
+/// Place this on an empty GameObject pivot (the "hinge").
+/// Make all objects you want to rotate (like a lid) children of this pivot.
+/// </summary>
 public class OpenCase : MonoBehaviour
 {
-    [Tooltip(("Objects that will be rotated."))]
-    public GameObject[] objectsToRotate;
-
-    [Tooltip("Hinge to rotate the object(s)")]
-    public GameObject rotationPoint;
-    
     [Tooltip("The total degrees to rotate.")]
     public float rotationAmount = 90.0f;
 
     [Tooltip("The time it takes to complete the rotation.")]
     public float duration = 1.0f;
 
-    [Tooltip("The axis around which to rotate. (0, 1, 0) is the Y-axis.")]
-    public Vector3 rotationAxis = Vector3.up;
+    [Tooltip("The LOCAL axis to rotate around. Use the gizmo to find the correct one.")]
+    public Vector3 localRotationAxis = Vector3.up; // e.g., (1,0,0) for X-axis
 
-    // --- Private state ---
+    // --- Private State ---
     private bool isRotating = false;
-    private Coroutine rotationCoroutine;
+    private bool isOpen = false;
     
-    // Public function to call rotation
-    public void StartRotation()
+    private Coroutine rotationCoroutine;
+    private Quaternion closedRotation;
+    private Quaternion openRotation;
+
+    void Awake()
     {
-        // Prevent starting a new rotation if one is already in progress
-        if (!isRotating)
-        {
-            rotationCoroutine = StartCoroutine(RotateOverTime());
-        }
+        // Store the initial LOCAL rotation as the "closed" state
+        closedRotation = transform.localRotation;
+        
+        // Calculate the "open" state by applying the rotation
+        openRotation = closedRotation * Quaternion.AngleAxis(rotationAmount, localRotationAxis.normalized);
     }
 
-
-    /// Coroutine to handle the rotation over a set duration.
-    private IEnumerator RotateOverTime()
+    /// <summary>
+    /// Public function to start the rotation.
+    /// This will toggle between the open and closed states.
+    /// </summary>
+    public void StartRotation()
     {
-        // Set the rotating flag to true
+        // Do nothing if we are already in the middle of a rotation
+        if (isRotating)
+        {
+            return;
+        }
+
+        // Figure out our target rotation
+        isOpen = !isOpen; // Toggle the state
+        Quaternion targetRotation = isOpen ? openRotation : closedRotation;
+        
+        // Start the rotation coroutine
+        rotationCoroutine = StartCoroutine(RotateOverTime(targetRotation));
+    }
+
+    /// <summary>
+    /// Coroutine to handle the rotation over a set duration.
+    /// </summary>
+    private IEnumerator RotateOverTime(Quaternion target)
+    {
         isRotating = true;
-
-        // --- START: MODIFIED LOGIC ---
-
         float elapsedTime = 0f;
-        float currentAngle = 0f; // Track how much we've rotated so far
+        
+        // Get the rotation we are starting from
+        Quaternion start = transform.localRotation;
 
-        // Get the pivot point and axis *once*
-        Vector3 pivotPoint = rotationPoint.transform.position;
-        Vector3 axis = rotationAxis.normalized;
-
-        // Loop until the elapsed time is greater than or equal to the duration
         while (elapsedTime < duration)
         {
             // Calculate the interpolation factor (t) from 0 to 1
             float t = elapsedTime / duration;
-            
-            // Optional: Add easing for a smoother effect (e.g., "SmoothStep")
-            // t = t * t * (3f - 2f * t);
 
-            // Calculate what our target angle should be at this specific moment
-            float targetAngleThisFrame = Mathf.Lerp(0, rotationAmount, t);
-            
-            // Calculate the small angle to rotate *this frame* to catch up
-            float deltaAngle = targetAngleThisFrame - currentAngle;
-
-            // Iterate through all objects and rotate them around the pivot
-            foreach (GameObject obj in objectsToRotate)
-            {
-                if (obj != null)
-                {
-                    obj.transform.RotateAround(pivotPoint, axis, deltaAngle);
-                }
-            }
+            // Slerp (Spherical Linear Interpolation) this object's LOCAL rotation
+            transform.localRotation = Quaternion.Slerp(start, target, t);
 
             // Wait for the next frame
             elapsedTime += Time.deltaTime;
-            // Update our current angle
-            currentAngle = targetAngleThisFrame; 
             yield return null;
         }
 
         // --- Rotation complete ---
 
-        // Snap to the final target angle to ensure 100% accuracy
-        float finalDelta = rotationAmount - currentAngle;
-        foreach (GameObject obj in objectsToRotate)
-        {
-            if (obj != null)
-            {
-                obj.transform.RotateAround(pivotPoint, axis, finalDelta);
-            }
-        }
-
-        // --- END: MODIFIED LOGIC ---
+        // Snap to the final target rotation to ensure 100% accuracy
+        transform.localRotation = target;
 
         // Reset the flag
         isRotating = false;

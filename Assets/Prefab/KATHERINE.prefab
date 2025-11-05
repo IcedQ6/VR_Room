@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3358070259792414639}
   - component: {fileID: 6732306554966060318}
   - component: {fileID: 844146033594002174}
-  - component: {fileID: 373329962778503924}
   m_Layer: 0
   m_Name: BottomCase
   m_TagString: Untagged
@@ -32,11 +31,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.081286, z: -0.0078002}
   m_LocalScale: {x: 0.62099135, y: 0.10974058, z: 0.47273487}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 6754342441671800069}
-  - {fileID: 6846831925313564982}
-  - {fileID: 5659606441706520306}
-  - {fileID: 1022806918189178240}
+  m_Children: []
   m_Father: {fileID: 2082376304145304460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3358070259792414639
@@ -110,21 +105,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &373329962778503924
+--- !u!1 &2160299913728018370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795709961847588245}
+  - component: {fileID: 3718241078188940593}
+  m_Layer: 0
+  m_Name: Hinge_Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795709961847588245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160299913728018370}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.026619017, z: 0.22884002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1022806918189178240}
+  m_Father: {fileID: 2082376304145304460}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3718241078188940593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420583933930836779}
+  m_GameObject: {fileID: 2160299913728018370}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42fed843d3c982e4597e5e981b780cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationAmount: 90
-  duration: 1
-  rotationAxis: {x: 0, y: 1, z: 0}
+  duration: 0.4
+  localRotationAxis: {x: 1, y: 0, z: 0}
 --- !u!1 &4890100589910303147
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +184,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6846831925313564982}
+  - {fileID: 6754342441671800069}
+  - {fileID: 5659606441706520306}
+  - {fileID: 795709961847588245}
   - {fileID: 2299365513666764122}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,10 +213,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &9112287175930593750
 MonoBehaviour:
@@ -255,7 +287,7 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 373329962778503924}
+      - m_Target: {fileID: 3718241078188940593}
         m_TargetAssemblyTypeName: OpenCase, Assembly-CSharp
         m_MethodName: StartRotation
         m_Mode: 1
@@ -378,11 +410,11 @@ Transform:
   m_GameObject: {fileID: 5785740682570860977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.22, z: -0.568}
-  m_LocalScale: {x: 0.28402, y: 0.39738, z: 0.19100356}
+  m_LocalPosition: {x: 0, y: -0.057143092, z: -0.2763136}
+  m_LocalScale: {x: 0.17637397, y: 0.04360871, z: 0.09029404}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299365513666764122}
+  m_Father: {fileID: 2082376304145304460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3445593946155799866
 MeshFilter:
@@ -465,7 +497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5659606441706520306}
   m_Layer: 0
-  m_Name: Hinge
+  m_Name: rotation_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,11 +512,11 @@ Transform:
   m_GameObject: {fileID: 6252710118955597950}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.49814734, z: 0.5005771}
-  m_LocalScale: {x: 1.3398899, y: 7.5820627, z: 1.7600987}
+  m_LocalPosition: {x: 0, y: -0.026619017, z: 0.22884002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299365513666764122}
+  m_Father: {fileID: 2082376304145304460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6356699335717894931
 GameObject:
@@ -511,12 +543,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6356699335717894931}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0.21999979, z: -0.568}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: -0.057143092, z: -0.2763136}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299365513666764122}
+  m_Father: {fileID: 2082376304145304460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!114 &1928521534210142605
 MonoBehaviour:
@@ -558,11 +590,11 @@ Transform:
   m_GameObject: {fileID: 6723110070830850463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75800025, z: 0}
-  m_LocalScale: {x: 1, y: 0.51598996, z: 1}
+  m_LocalPosition: {x: 0, y: 0.028516412, z: -0.23664021}
+  m_LocalScale: {x: 0.62099135, y: 0.056625035, z: 0.47273487}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2299365513666764122}
+  m_Father: {fileID: 795709961847588245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3442989624029138220
 MeshFilter:
