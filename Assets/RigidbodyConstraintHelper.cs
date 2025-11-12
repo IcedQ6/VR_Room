@@ -1,71 +1,119 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 /// <summary>
-/// This script provides public functions to modify a Rigidbody's constraints,
-/// making them callable from UnityEvents (like buttons or interactables).
+/// A helper script to set Rigidbody constraints from UnityEvents.
+/// This allows you to choose which axes to freeze or unfreeze for
+/// position and rotation separately.
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class RigidbodyConstraintHelper : MonoBehaviour
 {
+    // (The enum definition is no longer in here)
+
     private Rigidbody rb;
 
     void Awake()
     {
-        // Get the Rigidbody on this same GameObject
         rb = GetComponent<Rigidbody>();
     }
 
     /// <summary>
-    /// Freezes all positional movement (X, Y, Z)
-    /// while preserving any existing rotation constraints.
+    /// Sets the position constraints, preserving any existing rotation constraints.
     /// </summary>
-    public void FreezePosition()
+    /// <param name="axesToFreeze">The position axes you want to freeze.</param>
+    public void SetPositionFreeze(string axis)
     {
-        if (rb != null)
+        if (rb == null) return;
+
+        // Get the current constraints
+        RigidbodyConstraints newConstraints = rb.constraints;
+
+        // 1. Clear all *existing* position constraints
+        newConstraints &= ~RigidbodyConstraints.FreezePosition;
+
+        // 2. Add back the ones specified by the enum
+        switch (axis)
         {
-            // Use a bitwise OR to add the FreezePosition flags
-            // without affecting the FreezeRotation flags.
-            rb.constraints = rb.constraints | RigidbodyConstraints.FreezePosition;
+            case "None":
+                break;
+            case "X":
+                newConstraints |= RigidbodyConstraints.FreezePositionX;
+                break;
+            case "All":
+                newConstraints |= RigidbodyConstraints.FreezePosition;
+                break;
+            /*
+            case ConstraintSelection.Y:
+                newConstraints |= RigidbodyConstraints.FreezePositionY;
+                break;
+            case ConstraintSelection.Z:
+                newConstraints |= RigidbodyConstraints.FreezePositionZ;
+                break;
+            case ConstraintSelection.XY:
+                newConstraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
+                break;
+            case ConstraintSelection.XZ:
+                newConstraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                break;
+            case ConstraintSelection.YZ:
+                newConstraints |= RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+                break;
+            case ConstraintSelection.All:
+                newConstraints |= RigidbodyConstraints.FreezePosition;
+                break;
+            */
         }
+
+        // Apply the new combined constraints
+        rb.constraints = newConstraints;
     }
 
     /// <summary>
-    /// Unfreezes all positional movement (X, Y, Z)
-    /// while preserving any existing rotation constraints.
+    /// Sets the rotation constraints, preserving any existing position constraints.
     /// </summary>
-    public void UnfreezePosition()
+    /// <param name="axesToFreeze">The rotation axes you want to freeze.</param>
+    public void SetRotationFreeze(ConstraintSelection axesToFreeze)
     {
-        if (rb != null)
-        {
-            // Use a bitwise AND NOT to remove only the FreezePosition flags
-            // without affecting the FreezeRotation flags.
-            rb.constraints = rb.constraints & ~RigidbodyConstraints.FreezePosition;
-        }
-    }
-    
-    /// <summary>
-    /// Freezes all rotation (X, Y, Z)
-    /// while preserving any existing position constraints.
-    /// </summary>
-    public void FreezeRotation()
-    {
-        if (rb != null)
-        {
-            rb.constraints = rb.constraints | RigidbodyConstraints.FreezeRotation;
-        }
-    }
+        if (rb == null) return;
 
-    /// <summary>
-    /// Unfreezes all rotation (X, Y, Z)
-    /// while preserving any existing position constraints.
-    /// </summary>
-    public void UnfreezeRotation()
-    {
-        if (rb != null)
+        // Get the current constraints
+        RigidbodyConstraints newConstraints = rb.constraints;
+
+        // 1. Clear all *existing* rotation constraints
+        newConstraints &= ~RigidbodyConstraints.FreezeRotation;
+
+        // 2. Add back the ones specified by the enum
+        switch (axesToFreeze)
         {
-            rb.constraints = rb.constraints & ~RigidbodyConstraints.FreezeRotation;
+            case ConstraintSelection.None:
+                break;
+            case ConstraintSelection.X:
+                newConstraints |= RigidbodyConstraints.FreezeRotationX;
+                break;
+            case ConstraintSelection.Y:
+                newConstraints |= RigidbodyConstraints.FreezeRotationY;
+                break;
+            case ConstraintSelection.Z:
+                newConstraints |= RigidbodyConstraints.FreezeRotationZ;
+                break;
+            case ConstraintSelection.XY:
+                newConstraints |= RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+                break;
+            case ConstraintSelection.XZ:
+                newConstraints |= RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                break;
+            case ConstraintSelection.YZ:
+                newConstraints |= RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                break;
+            case ConstraintSelection.All:
+                newConstraints |= RigidbodyConstraints.FreezeRotation;
+                break;
         }
+
+        // Apply the new combined constraints
+        rb.constraints = newConstraints;
     }
 }

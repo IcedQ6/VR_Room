@@ -4937,11 +4937,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: KATHERINE
       objectReference: {fileID: 0}
-    - target: {fileID: 6030362891127211705, guid: 15161333ff73940488b2034e42a667be,
-        type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 139200558}
     - target: {fileID: 9112287175930593750, guid: 15161333ff73940488b2034e42a667be,
         type: 3}
       propertyPath: m_InteractionManager
