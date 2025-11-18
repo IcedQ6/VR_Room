@@ -20,11 +20,17 @@ public class OpenCase : MonoBehaviour
     // --- Private State ---
     private bool isRotating = false;
     private bool isOpen = false;
+    public bool isInSocket = false;
     
     private Coroutine rotationCoroutine;
     private Quaternion closedRotation;
     private Quaternion openRotation;
 
+    public void SetIsInSocket(bool isInSocket)
+    {
+        this.isInSocket = isInSocket;
+    }
+    
     void Awake()
     {
         // Store the initial LOCAL rotation as the "closed" state
@@ -38,10 +44,10 @@ public class OpenCase : MonoBehaviour
     /// Public function to start the rotation.
     /// This will toggle between the open and closed states.
     /// </summary>
-    public void StartRotation()
+    public void StartRotation(bool needsToOpen)
     {
         // Do nothing if we are already in the middle of a rotation
-        if (isRotating)
+        if (isRotating && (needsToOpen == isOpen))
         {
             return;
         }
