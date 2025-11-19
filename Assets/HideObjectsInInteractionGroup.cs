@@ -25,8 +25,7 @@ public class HideObjectsInInteractionGroup : MonoBehaviour
             Debug.LogError("Group Root Object is not assigned!", this);
             return;
         }
-
-        // -his is the key line of code-- T ---
+        
         allSocketsInGroup = groupRootObject.GetComponentsInChildren<XRSocketInteractor>();
 
         // --- Log the results ---

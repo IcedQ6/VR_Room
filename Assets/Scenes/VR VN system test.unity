@@ -2919,12 +2919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceToggle: 0
   directInteractor: {fileID: 364578167}
---- !u!65 &800555534 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 8377861884025887945, guid: 15161333ff73940488b2034e42a667be,
-    type: 3}
-  m_PrefabInstance: {fileID: 7283182705213694015}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920921510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,16 +5299,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 139200558}
-    - target: {fileID: 9112287175930593750, guid: 15161333ff73940488b2034e42a667be,
-        type: 3}
-      propertyPath: m_Colliders.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9112287175930593750, guid: 15161333ff73940488b2034e42a667be,
-        type: 3}
-      propertyPath: m_Colliders.Array.data[1]
-      value: 
-      objectReference: {fileID: 800555534}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

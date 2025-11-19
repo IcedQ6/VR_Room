@@ -123,8 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2724036865404232396}
-  - component: {fileID: 4762399621522489341}
-  - component: {fileID: 4837713989174873492}
+  - component: {fileID: 590185851692295143}
   m_Layer: 0
   m_Name: SocketGroup
   m_TagString: Untagged
@@ -150,7 +149,7 @@ Transform:
   - {fileID: 2434408676265200904}
   m_Father: {fileID: 2082376304145304460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4762399621522489341
+--- !u!114 &590185851692295143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,29 +158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1190570614935860479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a50d88b55b45648927679791f472de, type: 3}
+  m_Script: {fileID: 11500000, guid: d64e8a3475f0f6042982887adcdd69b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GroupName: 
-  m_InteractionManager: {fileID: 0}
-  m_StartingGroupMembers:
-  - {fileID: 4078365710194049573}
-  - {fileID: 5775777448331886883}
-  - {fileID: 6169532961684898044}
-  m_StartingInteractionOverridesMap: []
---- !u!114 &4837713989174873492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190570614935860479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e366978770f38d24ba8f9340f5049cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groupRootObject: {fileID: 0}
+  sockets: []
 --- !u!1 &1420583933930836779
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +398,6 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 8377861884025887945}
-  - {fileID: 844146033594002174}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -468,7 +447,7 @@ MonoBehaviour:
           m_StringArgument: None
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4762399621522489341}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -483,6 +462,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3718241078188940593}
         m_TargetAssemblyTypeName: OpenCase, Assembly-CSharp
         m_MethodName: StartRotation
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 590185851692295143}
+        m_TargetAssemblyTypeName: SocketGroupMemory, Assembly-CSharp
+        m_MethodName: SetGroupVisibility
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -507,7 +498,7 @@ MonoBehaviour:
           m_StringArgument: All
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 4762399621522489341}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -522,6 +513,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3718241078188940593}
         m_TargetAssemblyTypeName: OpenCase, Assembly-CSharp
         m_MethodName: StartRotation
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 590185851692295143}
+        m_TargetAssemblyTypeName: SocketGroupMemory, Assembly-CSharp
+        m_MethodName: SetGroupVisibility
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1179,5 +1182,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484318fd26422824ea82a84883b5726f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socket: {fileID: 4078365710194049573}
+  socket: {fileID: 0}
   objectInSocket: {fileID: 0}
