@@ -68,6 +68,56 @@ public class SocketSequenceReader : MonoBehaviour
         Debug.Log(resultString.ToString());
     }
 
+    public bool checkForNoZeros()
+    {
+        StringBuilder resultString = new StringBuilder();
+        resultString.Append("Socket Sequence: [ ");
+
+        // 1. Loop through the sockets in the order defined in the list
+        for (int i = 0; i < orderedSockets.Count; i++)
+        {
+            int foundValue = 0;
+            bool hasItem = false;
+
+            XRSocketInteractor socket = orderedSockets[i];
+
+            // 2. Check if the socket is holding anything
+            if (socket != null && socket.hasSelection)
+            {
+                // Get the object currently inside
+                // (We use transform.gameObject to get the actual object reference)
+                var heldObject = socket.interactablesSelected[0].transform.gameObject;
+
+                // 3. Try to find the ItemData script on that object
+                if (heldObject.TryGetComponent<ItemData>(out ItemData data))
+                {
+                    foundValue = data.itemValue;
+                    hasItem = true;
+                }
+                else
+                {
+                    Debug.LogWarning($"Socket {i} has an object ({heldObject.name}), but it has no ItemData script!");
+                }
+            }
+
+            // 4. Format the output
+            if (hasItem)
+            {
+                resultString.Append(foundValue + " ");
+            }
+            else if (treatEmptyAsZero)
+            {
+                resultString.Append("0(Empty) ");
+            }
+            else
+            {
+                resultString.Append("- ");
+            }
+        }
+
+        return true;
+    }
+
     // Helper to auto-fill the list based on Hierarchy order
     [ContextMenu("Auto-Find Sockets (Hierarchy Order)")]
     public void AutoPopulateSockets()
