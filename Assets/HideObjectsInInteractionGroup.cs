@@ -36,5 +36,5 @@ public class HideObjectsInInteractionGroup : MonoBehaviour
             Debug.Log($"- {socket.gameObject.name}", socket.gameObject);
         }
     }
-    }
 }
+
