@@ -4653,6 +4653,7 @@ GameObject:
   - component: {fileID: 1470902841}
   - component: {fileID: 1470902840}
   - component: {fileID: 1470902839}
+  - component: {fileID: 1470902844}
   - component: {fileID: 1470902843}
   m_Layer: 0
   m_Name: CaseSocket
@@ -4737,7 +4738,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
+  m_StartingSelectFilters:
+  - {fileID: 1470902844}
   m_OnHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -4847,6 +4849,19 @@ MonoBehaviour:
   headCamera: {fileID: 920921511}
   offsetDown: 0.6
   offsetSide: -0.25
+--- !u!114 &1470902844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470902837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282f7a0b4147d6149b2d12f47c32ef63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropGracePeriod: 0.25
 --- !u!1001 &1772394324
 PrefabInstance:
   m_ObjectHideFlags: 0
