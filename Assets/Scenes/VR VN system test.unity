@@ -2919,6 +2919,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceToggle: 0
   directInteractor: {fileID: 364578167}
+--- !u!65 &800555534 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8377861884025887945, guid: 15161333ff73940488b2034e42a667be,
+    type: 3}
+  m_PrefabInstance: {fileID: 7283182705213694015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920921510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,6 +3985,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceToggle: 0
   directInteractor: {fileID: 712900743}
+--- !u!1 &1149371022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149371023}
+  m_Layer: 0
+  m_Name: TransformPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1149371023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149371022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.70710725, y: -0.000000029802319, z: -0, w: 0.70710635}
+  m_LocalPosition: {x: 0, y: 0.1022, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1470902838}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &1254538515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3956264462789570733, guid: 12c3467b95c7e5c4b9c2f42733663d2c,
@@ -4622,6 +4659,7 @@ GameObject:
   - component: {fileID: 1470902841}
   - component: {fileID: 1470902840}
   - component: {fileID: 1470902839}
+  - component: {fileID: 1470902843}
   m_Layer: 0
   m_Name: CaseSocket
   m_TagString: Untagged
@@ -4638,10 +4676,11 @@ Transform:
   m_GameObject: {fileID: 1470902837}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.222, y: -0.613, z: 0}
-  m_LocalScale: {x: 0.56689996, y: 0.5669, z: 0.56689996}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1149371023}
   m_Father: {fileID: 920921511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1470902839
@@ -4662,7 +4701,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 256
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1149371023}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -4688,36 +4727,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 461044220}
-        m_TargetAssemblyTypeName: OpenCase, Assembly-CSharp
-        m_MethodName: StartRotation
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 461044220}
         m_TargetAssemblyTypeName: OpenCase, Assembly-CSharp
         m_MethodName: SetIsInSocket
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 461044220}
-        m_TargetAssemblyTypeName: OpenCase, Assembly-CSharp
-        m_MethodName: StartRotation
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4771,7 +4786,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.45, y: 1, z: 1}
+  m_Size: {x: 0.24, y: 0.55, z: 0.64}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1470902841
 MeshRenderer:
@@ -4823,6 +4838,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470902837}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1470902843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470902837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87ec39fa3cdf3a4b9b9c77ab3b5133a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headCamera: {fileID: 920921511}
+  offsetDown: 0.6
+  offsetSide: -0.25
 --- !u!1001 &1772394324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5275,6 +5305,16 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 139200558}
+    - target: {fileID: 9112287175930593750, guid: 15161333ff73940488b2034e42a667be,
+        type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112287175930593750, guid: 15161333ff73940488b2034e42a667be,
+        type: 3}
+      propertyPath: m_Colliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 800555534}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

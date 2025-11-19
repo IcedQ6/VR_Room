@@ -58,7 +58,8 @@ public class OpenCase : MonoBehaviour
         {
             targetRotation = needsToOpen ? openRotation : closedRotation;
         }
-        
+
+        if (targetRotation == transform.localRotation) return;
         
         // Start the rotation coroutine
         rotationCoroutine = StartCoroutine(RotateOverTime(targetRotation));
