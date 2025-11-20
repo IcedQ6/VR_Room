@@ -42,7 +42,7 @@ ModelImporter:
       takeName: robot_idle_005_FBX
       internalID: -1149671903149043315
       firstFrame: 144
-      lastFrame: 338
+      lastFrame: 383
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -50,7 +50,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
