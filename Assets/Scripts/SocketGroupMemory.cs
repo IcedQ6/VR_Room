@@ -108,4 +108,28 @@ public class SocketGroupMemory : MonoBehaviour
         // Toggle Canvases
         foreach (var c in obj.GetComponentsInChildren<Canvas>()) c.enabled = state;
     }
+    
+    /// <summary>
+    /// Returns the object associated with a socket, whether it is physically there 
+    /// OR currently hidden in memory.
+    /// </summary>
+    public GameObject GetObjectInSocket(XRSocketInteractor socket)
+    {
+        // 1. Check Memory first (Is it hidden?)
+        if (savedItems.ContainsKey(socket))
+        {
+            var item = savedItems[socket];
+            if (item != null) return item.gameObject;
+        }
+
+        // 2. Check Reality second (Is it visible/snapped?)
+        if (socket.hasSelection)
+        {
+            // Handle XRI 2.x and 3.x
+            return socket.interactablesSelected[0].transform.gameObject;
+        }
+
+        // 3. Socket is truly empty
+        return null;
+    }
 }

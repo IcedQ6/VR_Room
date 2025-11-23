@@ -8,10 +8,15 @@ public class PortableContainer : MonoBehaviour
     [Tooltip("Drag the child sockets here in order (Left to Right).")]
     public List<XRSocketInteractor> childSockets = new List<XRSocketInteractor>();
 
-    /// <summary>
-    /// Returns an array of integers representing the items currently in the sockets.
-    /// Returns 0 for empty sockets.
-    /// </summary>
+    // Reference to the memory script (optional)
+    private SocketGroupMemory memoryScript;
+
+    private void Awake()
+    {
+        // Try to find the memory script on this same object
+        memoryScript = GetComponent<SocketGroupMemory>();
+    }
+
     public int[] GetCurrentValues()
     {
         int[] results = new int[childSockets.Count];
@@ -20,18 +25,33 @@ public class PortableContainer : MonoBehaviour
         {
             int val = 0;
             XRSocketInteractor socket = childSockets[i];
+            GameObject foundObj = null;
 
-            if (socket.hasSelection)
+            // --- SMART CHECK START ---
+            
+            // A. If we have the Memory script, ask it for the object (Hidden or Visible)
+            if (memoryScript != null)
             {
-                // Grab the object
-                var obj = socket.interactablesSelected[0].transform.gameObject;
-                
-                // Read the ItemData (from the script we made earlier)
-                if (obj.TryGetComponent<ItemData>(out ItemData data))
+                foundObj = memoryScript.GetObjectInSocket(socket);
+            }
+            // B. If no Memory script, just check the physical socket
+            else if (socket.hasSelection)
+            {
+                foundObj = socket.interactablesSelected[0].transform.gameObject;
+            }
+            
+            // --- SMART CHECK END ---
+
+            // If we found an object (even if it's invisible/disabled), read its data
+            if (foundObj != null)
+            {
+                // Note: GetComponent works even if the object is disabled
+                if (foundObj.TryGetComponent<ItemData>(out ItemData data))
                 {
                     val = data.itemValue;
                 }
             }
+
             results[i] = val;
         }
 
