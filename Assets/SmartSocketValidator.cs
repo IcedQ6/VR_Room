@@ -61,21 +61,27 @@ public class SmartSocketValidator : MonoBehaviour
     private void OnObjectInserted(SelectEnterEventArgs args)
     {
         GameObject insertedObj = args.interactableObject.transform.gameObject;
+        // 1. Search the object and all its children for the script
+        PortableContainer container = insertedObj.GetComponentInChildren<PortableContainer>();
 
-        // 1. Check if the object is a valid container
-        if (insertedObj.TryGetComponent<PortableContainer>(out PortableContainer container))
+        // 2. Standard null check to see if we found it
+        if (container != null)
         {
-            // 2. Get the raw data
+            // Get the raw data
             int[] values = container.GetCurrentValues();
-            Debug.Log($"[SmartSocket] Read values: {string.Join(",", values)}");
-
-            // 3. Run the State Machine
-            EvaluateStates(values);
+    
+            // ... Run your existing logic ...
+            EvaluateStates(values); 
+        }
+        else
+        {
+            Debug.LogWarning($"[Socket] Object '{insertedObj.name}' has no PortableContainer script on it or its children.");
         }
     }
 
     private void EvaluateStates(int[] currentValues)
     {
+        Debug.Log(string.Join(", ", currentValues));
         foreach (var rule in possibleStates)
         {
             if (CheckRule(rule, currentValues))

@@ -15,7 +15,7 @@ public class SocketObjectChecker : MonoBehaviour
         // Make sure the socket is assigned
         if (socket == null)
         {
-            Debug.Log("Socket is not assigned!", this);
+            //Debug.Log("Socket is not assigned!", this);
             enabled = false;
         }
     }
@@ -23,6 +23,11 @@ public class SocketObjectChecker : MonoBehaviour
     // You can call this function from an event or other script
     public void CheckSocket()
     {
+        if (socket == null)
+        {
+            Debug.Log("Socket not found! Likely hidden at the moment.");
+            return;
+        }
         // Get the interactable that is currently in the socket
         IXRSelectInteractable interactableInSocket = socket.firstInteractableSelected;
 

@@ -115,21 +115,27 @@ public class SocketGroupMemory : MonoBehaviour
     /// </summary>
     public GameObject GetObjectInSocket(XRSocketInteractor socket)
     {
+        Debug.Log("GetObjectInSocket");
         // 1. Check Memory first (Is it hidden?)
         if (savedItems.ContainsKey(socket))
         {
             var item = savedItems[socket];
-            if (item != null) return item.gameObject;
+            if (item != null)
+            {
+                Debug.Log("Found" + item.name + "in socket");
+                return item.gameObject;
+            }
         }
 
         // 2. Check Reality second (Is it visible/snapped?)
         if (socket.hasSelection)
         {
-            // Handle XRI 2.x and 3.x
+            Debug.Log(socket.name + "falling back to check real socket");
             return socket.interactablesSelected[0].transform.gameObject;
         }
 
         // 3. Socket is truly empty
+        Debug.LogError(socket.name + " has no selection");
         return null;
     }
 }
