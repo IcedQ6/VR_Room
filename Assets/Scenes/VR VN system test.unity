@@ -1358,7 +1358,7 @@ Transform:
   m_GameObject: {fileID: 144416211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6169996, y: -0.74, z: 6.146}
+  m_LocalPosition: {x: 1.6169996, y: -0.74, z: 6.365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13863,13 +13863,13 @@ Mesh:
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
-    indexCount: 24
+    indexCount: 6
     topology: 0
     baseVertex: 0
     firstVertex: 0
-    vertexCount: 16
+    vertexCount: 4
     localAABB:
-      m_Center: {x: 1.125, y: 0, z: 0.875}
+      m_Center: {x: 1.1250014, y: 3.410605e-13, z: 0.875002}
       m_Extent: {x: 1.125, y: 0, z: 0.875}
   m_Shapes:
     vertices: []
@@ -13887,10 +13887,10 @@ Mesh:
   m_KeepVertices: 1
   m_KeepIndices: 1
   m_IndexFormat: 0
-  m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a0009000b000a000c000d000e000d000f000e00
+  m_IndexBuffer: 000001000200010003000200
   m_VertexData:
     serializedVersion: 3
-    m_VertexCount: 16
+    m_VertexCount: 4
     m_Channels:
     - stream: 0
       offset: 0
@@ -13948,8 +13948,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 768
-    _typelessdata: 000000000000000000000000000000000000803f000000000000803f0000000000000000000080bf000000000000000000000000000000000000603f000000000000803f000000000000803f0000000000000000000080bf000000000000603f0000903f0000000000000000000000000000803f000000000000803f0000000000000000000080bf0000903f000000000000903f000000000000603f000000000000803f000000000000803f0000000000000000000080bf0000903f0000603f00000000000000000000603f000000000000803f000000000000803f0000000000000000000080bf000000000000603f00000000000000000000e03f000000000000803f000000000000803f0000000000000000000080bf000000000000e03f0000903f000000000000603f000000000000803f000000000000803f0000000000000000000080bf0000903f0000603f0000903f000000000000e03f000000000000803f000000000000803f0000000000000000000080bf0000903f0000e03f0000903f0000000000000000000000000000803f000000000000803f0000000000000000000080bf0000903f000000000000903f000000000000603f000000000000803f000000000000803f0000000000000000000080bf0000903f0000603f000010400000000000000000000000000000803f000000000000803f0000000000000000000080bf000010400000000000001040000000000000603f000000000000803f000000000000803f0000000000000000000080bf000010400000603f0000903f000000000000603f000000000000803f000000000000803f0000000000000000000080bf0000903f0000603f0000903f000000000000e03f000000000000803f000000000000803f0000000000000000000080bf0000903f0000e03f00001040000000000000603f000000000000803f000000000000803f0000000000000000000080bf000010400000603f00001040000000000000e03f000000000000803f000000000000803f0000000000000000000080bf000010400000e03f
+    m_DataSize: 192
+    _typelessdata: 0000c0350000c02a00000836000000000000803f000000000000803f0000000000000000000080bf0000c035000008360000c0350000c02a1100e03f000000000000803f000000000000803f0000000000000000000080bf0000c0351100e03f060010400000c02a00000836000000000000803f000000000000803f0000000000000000000080bf0600104000000836060010400000c02a1100e03f000000000000803f000000000000803f0000000000000000000080bf060010401100e03f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -14003,7 +14003,7 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 1.125, y: 0, z: 0.875}
+    m_Center: {x: 1.1250014, y: 3.410605e-13, z: 0.875002}
     m_Extent: {x: 1.125, y: 0, z: 0.875}
   m_MeshUsageFlags: 0
   m_CookingOptions: 30
@@ -21719,26 +21719,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSystem: {fileID: 1070684830}
   conversation:
-  - text: It works!
+  - text: What was that? Is this a delivery?
     onLineEvent:
       m_PersistentCalls:
         m_Calls: []
-  - text: It's really working!
+  - text: Oh, no. It's just the police.
     onLineEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 769769945}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+  - text: What are you here for? Noise complaint? Underhand deals?
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: 'A murder!? '
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: I haven't heard anyone complain about getting killed today.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: You know what, I'm busy. Real busy. Busier than you believe.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: I'm running an entire resturant out back right now.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: 'So here, help me so I can help you. '
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Go grab me some stuff to smash together and sell to someone.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Grab what? I don't know! I'm the owner, not the chef!
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!43 &1463422708
 Mesh:
   m_ObjectHideFlags: 0
@@ -25737,13 +25757,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775916903}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.50000006, y: -0.50000006, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 4.477704, y: -0.22083592, z: -2.577}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0000010356307, y: -0.7071069, z: -0.70710677, w: 0.0000009164214}
+  m_LocalPosition: {x: 6.211, y: -2.506, z: -2.577}
+  m_LocalScale: {x: 1.7295871, y: 1.2652, z: 2.2801435}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 287000561}
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: -90}
+  m_LocalEulerAnglesHint: {x: -90, y: 360, z: -180}
 --- !u!64 &1775916905
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25794,7 +25814,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6125db37fb54a4b15838d52b52aad792, type: 2}
+  - {fileID: 2100000, guid: 5e92fd75c76a32a47ba0fda39f56fefa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25834,9 +25854,9 @@ MonoBehaviour:
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_PivotLocation: 1
   m_PivotPosition: {x: 0, y: 0, z: 0}
-  m_UnmodifiedMeshVersion: 2431
+  m_UnmodifiedMeshVersion: 2457
   m_ShapeBox:
-    m_Center: {x: 1.125, y: 0, z: 0.875}
+    m_Center: {x: 1.1250014, y: 3.410605e-13, z: 0.875002}
     m_Extent: {x: 0.5, y: 0, z: 0.5}
   references:
     version: 2
@@ -25844,8 +25864,8 @@ MonoBehaviour:
     - rid: 618186559837962290
       type: {class: Plane, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
       data:
-        m_HeightSegments: 1
-        m_WidthSegments: 1
+        m_HeightSegments: 0
+        m_WidthSegments: 0
 --- !u!114 &1775916909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25877,117 +25897,25 @@ MonoBehaviour:
     m_ManualUV: 0
     elementGroup: -1
     m_TextureGroup: -1
-  - m_Indexes: 040000000500000006000000050000000700000006000000
-    m_SmoothingGroup: 0
-    m_Uv:
-      m_UseWorldSpace: 0
-      m_FlipU: 0
-      m_FlipV: 0
-      m_SwapUV: 0
-      m_Fill: 1
-      m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
-      m_Rotation: 0
-      m_Anchor: 9
-    m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
-    m_ManualUV: 0
-    elementGroup: -1
-    m_TextureGroup: -1
-  - m_Indexes: 08000000090000000a000000090000000b0000000a000000
-    m_SmoothingGroup: 0
-    m_Uv:
-      m_UseWorldSpace: 0
-      m_FlipU: 0
-      m_FlipV: 0
-      m_SwapUV: 0
-      m_Fill: 1
-      m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
-      m_Rotation: 0
-      m_Anchor: 9
-    m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
-    m_ManualUV: 0
-    elementGroup: -1
-    m_TextureGroup: -1
-  - m_Indexes: 0c0000000d0000000e0000000d0000000f0000000e000000
-    m_SmoothingGroup: 0
-    m_Uv:
-      m_UseWorldSpace: 0
-      m_FlipU: 0
-      m_FlipV: 0
-      m_SwapUV: 0
-      m_Fill: 1
-      m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
-      m_Rotation: 0
-      m_Anchor: 9
-    m_Material: {fileID: 0}
-    m_SubmeshIndex: 0
-    m_ManualUV: 0
-    elementGroup: -1
-    m_TextureGroup: -1
   m_SharedVertices:
   - m_Vertices: 00000000
-  - m_Vertices: 0100000004000000
-  - m_Vertices: 0200000008000000
-  - m_Vertices: 0300000006000000090000000c000000
-  - m_Vertices: 05000000
-  - m_Vertices: 070000000d000000
-  - m_Vertices: 0a000000
-  - m_Vertices: 0b0000000e000000
-  - m_Vertices: 0f000000
+  - m_Vertices: 01000000
+  - m_Vertices: 02000000
+  - m_Vertices: 03000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0.875}
-  - {x: 1.125, y: 0, z: 0}
-  - {x: 1.125, y: 0, z: 0.875}
-  - {x: 0, y: 0, z: 0.875}
-  - {x: 0, y: 0, z: 1.75}
-  - {x: 1.125, y: 0, z: 0.875}
-  - {x: 1.125, y: 0, z: 1.75}
-  - {x: 1.125, y: 0, z: 0}
-  - {x: 1.125, y: 0, z: 0.875}
-  - {x: 2.25, y: 0, z: 0}
-  - {x: 2.25, y: 0, z: 0.875}
-  - {x: 1.125, y: 0, z: 0.875}
-  - {x: 1.125, y: 0, z: 1.75}
-  - {x: 2.25, y: 0, z: 0.875}
-  - {x: 2.25, y: 0, z: 1.75}
+  - {x: 0.0000014305115, y: 3.410605e-13, z: 0.000002026558}
+  - {x: 0.0000014305115, y: 3.410605e-13, z: 1.750002}
+  - {x: 2.2500014, y: 3.410605e-13, z: 0.000002026558}
+  - {x: 2.2500014, y: 3.410605e-13, z: 1.750002}
   m_Textures0:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0.875}
-  - {x: 1.125, y: 0}
-  - {x: 1.125, y: 0.875}
-  - {x: 0, y: 0.875}
-  - {x: 0, y: 1.75}
-  - {x: 1.125, y: 0.875}
-  - {x: 1.125, y: 1.75}
-  - {x: 1.125, y: 0}
-  - {x: 1.125, y: 0.875}
-  - {x: 2.25, y: 0}
-  - {x: 2.25, y: 0.875}
-  - {x: 1.125, y: 0.875}
-  - {x: 1.125, y: 1.75}
-  - {x: 2.25, y: 0.875}
-  - {x: 2.25, y: 1.75}
+  - {x: 0.0000014305115, y: 0.000002026558}
+  - {x: 0.0000014305115, y: 1.750002}
+  - {x: 2.2500014, y: 0.000002026558}
+  - {x: 2.2500014, y: 1.750002}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
@@ -26001,7 +25929,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 993051566}
-  m_VersionIndex: 2431
+  m_VersionIndex: 2457
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
