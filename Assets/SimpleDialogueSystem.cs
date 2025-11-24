@@ -35,6 +35,10 @@ public class SimpleDialogueSystem : MonoBehaviour
         if (advanceButton == null) advanceButton = GetComponentInChildren<Button>();
         if (canvasRaycaster == null) canvasRaycaster = GetComponentInParent<GraphicRaycaster>();
 
+        // --- NEW FIX: Force Text to not block clicks ---
+        if (textComponent != null) 
+            textComponent.raycastTarget = false;
+
         // 2. Clear old text
         if(textComponent != null) textComponent.text = "";
 
