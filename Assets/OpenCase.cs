@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class OpenCase : MonoBehaviour
 {
+    [Header("Rotation Settings")]
     [Tooltip("The total degrees to rotate.")]
     public float rotationAmount = 90.0f;
 
@@ -17,9 +18,12 @@ public class OpenCase : MonoBehaviour
     [Tooltip("The LOCAL axis to rotate around. Use the gizmo to find the correct one.")]
     public Vector3 localRotationAxis = Vector3.up; // e.g., (1,0,0) for X-axis
 
+    [Header("References")]
+    [Tooltip("The script that manages the sockets inside the case. Required for hiding/showing contents.")]
+    public SocketGroupMemory memoryScript;
+
     // --- Private State ---
     private bool isRotating = false;
-    //private bool isOpen = false;
     public bool isInSocket = false;
     
     private Coroutine rotationCoroutine;
@@ -34,6 +38,16 @@ public class OpenCase : MonoBehaviour
         
         // Calculate the "open" state by applying the rotation
         openRotation = closedRotation * Quaternion.AngleAxis(rotationAmount, localRotationAxis.normalized);
+    }
+
+    void Start()
+    {
+        // Ensure sockets start hidden if the case starts closed
+        // We assume it starts closed based on Awake logic
+        if (memoryScript != null)
+        {
+            memoryScript.SetGroupVisibility(false);
+        }
     }
 
     /// <summary>
@@ -52,6 +66,7 @@ public class OpenCase : MonoBehaviour
         Quaternion targetRotation;
         if (isInSocket)
         {
+            // If socketed, force closed
             targetRotation = closedRotation;
         }
         else
@@ -60,6 +75,13 @@ public class OpenCase : MonoBehaviour
         }
 
         if (targetRotation == transform.localRotation) return;
+
+        // VISIBILITY LOGIC (OPENING):
+        // If we are about to OPEN, show the contents immediately so they appear as the lid lifts.
+        if (targetRotation == openRotation && memoryScript != null)
+        {
+            memoryScript.SetGroupVisibility(true);
+        }
         
         // Start the rotation coroutine
         rotationCoroutine = StartCoroutine(RotateOverTime(targetRotation));
@@ -94,6 +116,14 @@ public class OpenCase : MonoBehaviour
         // Snap to the final target rotation to ensure 100% accuracy
         transform.localRotation = target;
 
+        // VISIBILITY LOGIC (CLOSING):
+        // If we just finished CLOSING, hide the contents now that the lid is fully down.
+        // This prevents items from "popping" out of existence while the lid is still moving.
+        if (target == closedRotation && memoryScript != null)
+        {
+            memoryScript.SetGroupVisibility(false);
+        }
+
         // Reset the flag
         isRotating = false;
     }
@@ -102,5 +132,4 @@ public class OpenCase : MonoBehaviour
     {
         this.isInSocket = isInSocket;
     }
-
 }

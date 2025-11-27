@@ -10,6 +10,9 @@ public class SocketGroupMemory : MonoBehaviour
     // Memory Dictionary
     private Dictionary<XRSocketInteractor, XRBaseInteractable> savedItems = new Dictionary<XRSocketInteractor, XRBaseInteractable>();
 
+    // State tracking to prevent "Double Hiding" (which deletes items)
+    private bool isHidden = false;
+
     private void Awake()
     {
         if (sockets.Count == 0) GetComponentsInChildren(true, sockets);
@@ -25,95 +28,93 @@ public class SocketGroupMemory : MonoBehaviour
 
     private void HideGroup()
     {
+        // SAFETY CHECK: If we are already hidden, STOP.
+        // Running this twice wipes the 'savedItems' map and deletes your items.
+        if (isHidden) return;
+
         savedItems.Clear();
 
         foreach (var socket in sockets)
         {
             if (socket == null) continue;
 
-            // 1. If the socket is holding something, save it and disable it
+            // 1. Save and Disable Items
             if (socket.hasSelection)
             {
                 var item = socket.interactablesSelected[0] as XRBaseInteractable;
-                
                 if (item != null)
                 {
                     savedItems.Add(socket, item);
-
-                    // Freeze physics so it stays in place
-                    if (item.TryGetComponent<Rigidbody>(out Rigidbody rb))
-                    {
-                        rb.isKinematic = true;
-                    }
-
-                    // NUCLEAR OPTION: Turn the item object completely off.
-                    // This guarantees 100% invisibility and stops all interaction scripts.
-                    item.gameObject.SetActive(false);
+                    if (item.TryGetComponent<Rigidbody>(out Rigidbody rb)) rb.isKinematic = true;
+                    item.gameObject.SetActive(false); // Hide the gun/key
                 }
             }
 
-            // 2. Turn the Socket object completely off.
-            // This stops the 'SocketGhostVisuals' script from running and hides the ghost mesh.
-            socket.gameObject.SetActive(false);
+            // 2. Disable Components on the Socket
+            socket.enabled = false;
+
+            // 3. FORCE DISABLE GHOST VISUALS
+            // We access the visual object directly to ensure it vanishes, 
+            // even if the Ghost script doesn't handle OnDisable correctly.
+            if (socket.TryGetComponent<SocketGhostVisuals>(out var ghost)) 
+            {
+                ghost.enabled = false;
+                if (ghost.placeholderVisual != null) ghost.placeholderVisual.SetActive(false);
+            }
+
+            if (socket.TryGetComponent<Collider>(out var col)) col.enabled = false;
         }
+
+        isHidden = true;
     }
 
     private void ShowGroup()
     {
+        // SAFETY CHECK: If we are already visible, don't try to show again.
+        if (!isHidden) return;
+
         foreach (var socket in sockets)
         {
             if (socket == null) continue;
 
-            // 1. Turn the socket back on
-            socket.gameObject.SetActive(true);
+            // 1. Re-enable Components
+            if (socket.TryGetComponent<Collider>(out var col)) col.enabled = true;
             
-            // 2. Restore the item if we had one
+            // Re-enable Ghost Script (It will handle its own visual state)
+            if (socket.TryGetComponent<SocketGhostVisuals>(out var ghost)) 
+            {
+                ghost.enabled = true;
+                // We don't force SetActive(true) here; we let the ghost script decide 
+                // if it should be visible (based on whether the socket is empty)
+            }
+            
+            socket.enabled = true; 
+            
+            // 2. Restore Items
             if (savedItems.ContainsKey(socket))
             {
                 var item = savedItems[socket];
-
                 if (item != null)
                 {
-                    // Turn the item back on
                     item.gameObject.SetActive(true);
+                    if (item.TryGetComponent<Rigidbody>(out Rigidbody rb)) rb.isKinematic = false;
 
-                    // Unfreeze physics
-                    if (item.TryGetComponent<Rigidbody>(out Rigidbody rb))
-                    {
-                        rb.isKinematic = false;
-                    }
-
-                    // Force the snap immediately so the socket reclaims the item
+                    // Force Snap
                     var manager = socket.interactionManager;
                     if (manager != null)
-                    {
                         manager.SelectEnter(socket as IXRSelectInteractor, item as IXRSelectInteractable);
-                    }
                 }
             }
         }
         
         savedItems.Clear();
+        isHidden = false;
     }
 
-    /// <summary>
-    /// Helper for the PortableContainer script to find items even when they are disabled/hidden.
-    /// </summary>
     public GameObject GetObjectInSocket(XRSocketInteractor socket)
     {
-        // Check Memory first (Hidden Items)
-        if (savedItems.ContainsKey(socket))
-        {
-            var item = savedItems[socket];
-            if (item != null) return item.gameObject;
-        }
-
-        // Check Reality second (Visible Items)
-        if (socket.hasSelection)
-        {
-            return socket.interactablesSelected[0].transform.gameObject;
-        }
-
+        if (savedItems.ContainsKey(socket)) return savedItems[socket].gameObject;
+        if (socket.hasSelection) return socket.interactablesSelected[0].transform.gameObject;
         return null;
     }
 }
