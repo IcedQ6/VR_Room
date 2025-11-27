@@ -2143,6 +2143,60 @@ MonoBehaviour:
   - {fileID: 1677695042}
   - {fileID: 1586120939}
   debugIndices: 01000000
+--- !u!1 &218209243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218209244}
+  - component: {fileID: 218209245}
+  m_Layer: 0
+  m_Name: DidntChangeAnything
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218209244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218209243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1057715331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218209245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218209243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1070684830}
+  conversation:
+  - text: What? You didn't change anything!
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Go grab stuff! New stuff! I've seen this stuff in my sleep.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &225407130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,6 +3587,90 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1050328652}
   m_SourcePrefab: {fileID: 100100000, guid: 62aff30fa9c9d01419de0b76034f723b, type: 3}
+--- !u!1001 &426772631
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 769769947}
+    m_Modifications:
+    - target: {fileID: -8054444959487964318, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078207992731249092, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6730737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0498781
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.590335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112929077362024680, guid: 74170d93289fc44429c2b85b50ee174c,
+        type: 3}
+      propertyPath: m_Name
+      value: blow up
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74170d93289fc44429c2b85b50ee174c, type: 3}
+--- !u!4 &426772632 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7364754443877226828, guid: 74170d93289fc44429c2b85b50ee174c,
+    type: 3}
+  m_PrefabInstance: {fileID: 426772631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &429429931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1430484203859370521, guid: 8dc4b6dcc64dcc04b9f7a53b1474faaa,
@@ -10103,8 +10241,59 @@ Transform:
   - {fileID: 906881048}
   - {fileID: 1301783804}
   - {fileID: 1212577019}
+  - {fileID: 426772632}
   m_Father: {fileID: 1551637448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &773079397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773079398}
+  - component: {fileID: 773079399}
+  m_Layer: 0
+  m_Name: Solution
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &773079398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773079397}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1057715331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &773079399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773079397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1070684830}
+  conversation:
+  - text: That's the spice! The mixture! The sauce!
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &774706393 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5775777448331886883, guid: 15161333ff73940488b2034e42a667be,
@@ -14028,6 +14217,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1001710211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1001710212}
+  - component: {fileID: 1001710213}
+  m_Layer: 0
+  m_Name: NotAllSlotsFilled
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1001710212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001710211}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1057715331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001710213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001710211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1070684830}
+  conversation:
+  - text: That's it? That's not even 3 things!
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: No one has ever made something wih less than three ingredients.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: I bet your life on it.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!4 &1005632935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409035287331058513, guid: 444afa3e4ed2c5248880482f02656312,
@@ -14886,6 +15133,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1458918397}
+  - {fileID: 218209244}
+  - {fileID: 1001710212}
+  - {fileID: 1401371692}
+  - {fileID: 773079398}
   m_Father: {fileID: 1166560314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1067925116
@@ -15903,9 +16154,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1132886129}
   - component: {fileID: 1132886130}
-  - component: {fileID: 1132886131}
   m_Layer: 0
-  m_Name: START OF SCENE
+  m_Name: START OF SCENE DEBUG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15942,10 +16192,10 @@ MonoBehaviour:
   onSceneLoaded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1132886131}
-        m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
-        m_MethodName: TriggerDialogue
-        m_Mode: 1
+      - m_Target: {fileID: 1595482351}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15956,76 +16206,16 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 204564023}
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
-        m_MethodName: DebugOff
-        m_Mode: 1
+        m_MethodName: SetSingleLightActive
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1132886131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132886128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueSystem: {fileID: 1335665689}
-  conversation:
-  - text: 'You hearing you, me?
-
-      Click me, you.'
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: This is the place.
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: It has to be.
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: Too many places on the list have come up with nothing.
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: That man was killed here.
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: I can bet KATHERINE on it.
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: With her at my waist, we can find it.
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: Let's rock.
-    onLineEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 204564023}
-          m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
-          m_MethodName: SetSingleLightActive
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &1141022773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16519,16 +16709,111 @@ MonoBehaviour:
     onConditionMet:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1772394325}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: SetTrigger
-          m_Mode: 5
+        - m_Target: {fileID: 218209245}
+          m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: bow
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - stateName: Inventory Not Full
+    mode: 4
+    targetValues: 00000000
+    targetSum: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1001710213}
+          m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - stateName: Has Jack
+    mode: 4
+    targetValues: 2d000000
+    targetSum: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1401371693}
+          m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - stateName: Has soda
+    mode: 4
+    targetValues: 03000000
+    targetSum: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1401371693}
+          m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - stateName: Has Vanilla
+    mode: 4
+    targetValues: 09000000
+    targetSum: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1401371693}
+          m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - stateName: Solution
+    mode: 1
+    targetValues: 090000002d00000003000000
+    targetSum: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 773079397}
+          m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   onNoStateMet:
@@ -19766,6 +20051,68 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1401371691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401371692}
+  - component: {fileID: 1401371693}
+  m_Layer: 0
+  m_Name: OnTheRightTrack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1401371692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401371691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1057715331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1401371693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401371691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1070684830}
+  conversation:
+  - text: Hold on, you're onto something.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Jack, soda, vanilia... That sounds good.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Screw the customers! Give me that and I'll open the way.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: I promise on my life and yours. Mostly yours.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1435736402
 GameObject:
   m_ObjectHideFlags: 0
@@ -25601,12 +25948,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ffbc06802a247cfb1b26f4ee67eba8, type: 3}
---- !u!95 &1772394325 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 73ffbc06802a247cfb1b26f4ee67eba8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1772394324}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1775785239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3956264462789570733, guid: 12c3467b95c7e5c4b9c2f42733663d2c,
@@ -26372,6 +26713,139 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddb8bcacf9b699b428806e528be6780f, type: 3}
+--- !u!1 &1838988458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838988461}
+  - component: {fileID: 1838988460}
+  - component: {fileID: 1838988459}
+  m_Layer: 0
+  m_Name: START OF SCENE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1838988459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838988458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1335665689}
+  conversation:
+  - text: 'You hearing you, me?
+
+      Click me, you.'
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: This is the place.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: It has to be.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Too many places on the list have come up with nothing.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: That man was killed here.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: I can bet KATHERINE on it.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: With her at my waist, we can find it.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Let's rock.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 204564023}
+          m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
+          m_MethodName: SetSingleLightActive
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1838988460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838988458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5016a5ce458c8924197a18ae44c7d5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 1
+  onSceneLoaded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1838988459}
+        m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 204564023}
+        m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
+        m_MethodName: DebugOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1838988461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838988458}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.26958, y: 0.21615505, z: -3.2294564}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1842218644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29667,5 +30141,6 @@ SceneRoots:
   - {fileID: 1551637448}
   - {fileID: 239807004}
   - {fileID: 1132886129}
+  - {fileID: 1838988461}
   - {fileID: 1166560313}
   - {fileID: 1251620739}
