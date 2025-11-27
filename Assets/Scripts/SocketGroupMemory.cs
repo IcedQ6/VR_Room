@@ -7,8 +7,7 @@ public class SocketGroupMemory : MonoBehaviour
     [Header("Configuration")]
     public List<XRSocketInteractor> sockets = new List<XRSocketInteractor>();
 
-    // This Dictionary acts as our "Memory"
-    // It links a Socket to the Item it was holding
+    // Memory Dictionary
     private Dictionary<XRSocketInteractor, XRBaseInteractable> savedItems = new Dictionary<XRSocketInteractor, XRBaseInteractable>();
 
     private void Awake()
@@ -26,37 +25,36 @@ public class SocketGroupMemory : MonoBehaviour
 
     private void HideGroup()
     {
-        // CLEAR memory before we start hiding things
         savedItems.Clear();
 
         foreach (var socket in sockets)
         {
             if (socket == null) continue;
 
-            // 1. MEMORIZE: If the socket has an item, remember it!
+            // 1. If the socket is holding something, save it and disable it
             if (socket.hasSelection)
             {
-                // Get the item (works for XRI 2.x and 3.x)
                 var item = socket.interactablesSelected[0] as XRBaseInteractable;
                 
                 if (item != null)
                 {
-                    // Save to dictionary
                     savedItems.Add(socket, item);
 
-                    // Freeze the item so it doesn't fall away while hidden
+                    // Freeze physics so it stays in place
                     if (item.TryGetComponent<Rigidbody>(out Rigidbody rb))
                     {
                         rb.isKinematic = true;
                     }
 
-                    // Hide the item
-                    ToggleObject(item.gameObject, false);
+                    // NUCLEAR OPTION: Turn the item object completely off.
+                    // This guarantees 100% invisibility and stops all interaction scripts.
+                    item.gameObject.SetActive(false);
                 }
             }
 
-            // 2. Hide the Socket itself
-            ToggleObject(socket.gameObject, false);
+            // 2. Turn the Socket object completely off.
+            // This stops the 'SocketGhostVisuals' script from running and hides the ghost mesh.
+            socket.gameObject.SetActive(false);
         }
     }
 
@@ -66,76 +64,56 @@ public class SocketGroupMemory : MonoBehaviour
         {
             if (socket == null) continue;
 
-            // 1. Show the Socket first
-            ToggleObject(socket.gameObject, true);
+            // 1. Turn the socket back on
+            socket.gameObject.SetActive(true);
             
-            // 2. RECALL: Did this socket have an item?
+            // 2. Restore the item if we had one
             if (savedItems.ContainsKey(socket))
             {
                 var item = savedItems[socket];
 
-                // Show the item
-                ToggleObject(item.gameObject, true);
-
-                // Unfreeze the item (allow physics again)
-                if (item.TryGetComponent<Rigidbody>(out Rigidbody rb))
+                if (item != null)
                 {
-                    rb.isKinematic = false;
-                }
+                    // Turn the item back on
+                    item.gameObject.SetActive(true);
 
-                // CRITICAL STEP: Force the socket to grab the item again manually
-                // We use the Interaction Manager to force the connection
-                var manager = socket.interactionManager;
-                if (manager != null && item != null)
-                {
-                    manager.SelectEnter(socket as IXRSelectInteractor, item as IXRSelectInteractable);
+                    // Unfreeze physics
+                    if (item.TryGetComponent<Rigidbody>(out Rigidbody rb))
+                    {
+                        rb.isKinematic = false;
+                    }
+
+                    // Force the snap immediately so the socket reclaims the item
+                    var manager = socket.interactionManager;
+                    if (manager != null)
+                    {
+                        manager.SelectEnter(socket as IXRSelectInteractor, item as IXRSelectInteractable);
+                    }
                 }
             }
         }
         
-        // Clear memory after restoring
         savedItems.Clear();
     }
 
-    private void ToggleObject(GameObject obj, bool state)
-    {
-        // Toggle Renderers
-        foreach (var r in obj.GetComponentsInChildren<Renderer>()) r.enabled = state;
-        
-        // Toggle Colliders (This causes the drop, but our Memory fixes it)
-        foreach (var c in obj.GetComponentsInChildren<Collider>()) c.enabled = state;
-        
-        // Toggle Canvases
-        foreach (var c in obj.GetComponentsInChildren<Canvas>()) c.enabled = state;
-    }
-    
     /// <summary>
-    /// Returns the object associated with a socket, whether it is physically there 
-    /// OR currently hidden in memory.
+    /// Helper for the PortableContainer script to find items even when they are disabled/hidden.
     /// </summary>
     public GameObject GetObjectInSocket(XRSocketInteractor socket)
     {
-        Debug.Log("GetObjectInSocket");
-        // 1. Check Memory first (Is it hidden?)
+        // Check Memory first (Hidden Items)
         if (savedItems.ContainsKey(socket))
         {
             var item = savedItems[socket];
-            if (item != null)
-            {
-                Debug.Log("Found" + item.name + "in socket");
-                return item.gameObject;
-            }
+            if (item != null) return item.gameObject;
         }
 
-        // 2. Check Reality second (Is it visible/snapped?)
+        // Check Reality second (Visible Items)
         if (socket.hasSelection)
         {
-            Debug.Log(socket.name + "falling back to check real socket");
             return socket.interactablesSelected[0].transform.gameObject;
         }
 
-        // 3. Socket is truly empty
-        Debug.LogError(socket.name + " has no selection");
         return null;
     }
 }
