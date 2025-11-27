@@ -160,124 +160,6 @@ Transform:
   - {fileID: 1867022857}
   m_Father: {fileID: 1551637448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &50400094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 50400095}
-  - component: {fileID: 50400097}
-  - component: {fileID: 50400096}
-  m_Layer: 0
-  m_Name: Spot Light 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &50400095
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50400094}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.6641858, y: 0.08150333, z: -0.22896092, w: -0.70695925}
-  m_LocalPosition: {x: -1.8526511, y: 2.2303653, z: 11.269554}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1586120940}
-  m_LocalEulerAnglesHint: {x: 77.535, y: 61.066, z: -273.418}
---- !u!114 &50400096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50400094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
---- !u!108 &50400097
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50400094}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 0
-  m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!43 &53954447
 Mesh:
   m_ObjectHideFlags: 0
@@ -10601,6 +10483,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &745169309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3382612317632467081, guid: 8dc4b6dcc64dcc04b9f7a53b1474faaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1166560313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &746101186
 GameObject:
   m_ObjectHideFlags: 0
@@ -10964,6 +10852,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
           m_MethodName: SetTrigger
           m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: escape
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1166560317}
+          m_TargetAssemblyTypeName: blowup, Assembly-CSharp
+          m_MethodName: BlowUp
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16829,6 +16729,8 @@ Transform:
   - {fileID: 1001710212}
   - {fileID: 1401371692}
   - {fileID: 773079398}
+  - {fileID: 2073893352}
+  - {fileID: 1406821243}
   m_Father: {fileID: 1166560314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1067925116
@@ -18367,6 +18269,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1057715331}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3382612317632467081, guid: 8dc4b6dcc64dcc04b9f7a53b1474faaa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1166560317}
     - targetCorrespondingSourceObject: {fileID: 6519030274837742305, guid: 8dc4b6dcc64dcc04b9f7a53b1474faaa,
         type: 3}
       insertIndex: -1
@@ -18396,7 +18302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9adbbf20635f17446957483af5bd4706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableFirstTimeOverride: 0
+  enableFirstTimeOverride: 1
   onFirstInsert:
     m_PersistentCalls:
       m_Calls:
@@ -18482,6 +18388,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - stateName: Has Food
+    mode: 4
+    targetValues: 01000000
+    targetSum: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2073893353}
+          m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - stateName: Has Jack
     mode: 4
     targetValues: 2d000000
@@ -18542,9 +18467,9 @@ MonoBehaviour:
   onNoStateMet:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1435736404}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 1406821244}
+        m_TargetAssemblyTypeName: ConversationTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18554,6 +18479,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1166560317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745169309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e917dfee4292b444a9a596f0b98e801f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bu: {fileID: 9112929077362024680, guid: 74170d93289fc44429c2b85b50ee174c, type: 3}
+  delay: 8
 --- !u!1 &1170747528
 GameObject:
   m_ObjectHideFlags: 0
@@ -22035,13 +21974,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356778388}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13380843, y: 0.652996, z: -0.6896818, w: -0.28289688}
-  m_LocalPosition: {x: 0.14734888, y: 2.2303653, z: 11.269554}
+  m_LocalRotation: {x: -0.18306114, y: 0.6409344, z: -0.7091918, w: -0.22964929}
+  m_LocalPosition: {x: -0.799, y: 2.2303653, z: 11.269554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1586120940}
-  m_LocalEulerAnglesHint: {x: 77.535, y: -58.934, z: -273.418}
+  m_LocalEulerAnglesHint: {x: 96.70001, y: -197.317, z: -411.312}
 --- !u!114 &1356778390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22186,6 +22125,56 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: I promise on my life and yours. Mostly yours.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!1 &1406821242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406821243}
+  - component: {fileID: 1406821244}
+  m_Layer: 0
+  m_Name: AllFail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1406821243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406821242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1057715331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1406821244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406821242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1070684830}
+  conversation:
+  - text: Nope. All of these suck. Every last one.
     onLineEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -25107,7 +25096,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1356778389}
-  - {fileID: 50400095}
   - {fileID: 822421982}
   - {fileID: 1485839858}
   - {fileID: 144416212}
@@ -30739,6 +30727,27 @@ MonoBehaviour:
     onLineEvent:
       m_PersistentCalls:
         m_Calls: []
+  - text: 'Detective tips: Grab KATHERINE from your waist.'
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Place items inside of KATHERINE, then have them checked on pedestals.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: KATHERINE can't follow you, but can be put back on your waist for easy
+      travel.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: You can also force grab object by placing your thumb on the stick and grabbing.
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: With all of that out of the way,
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - text: Let's rock.
     onLineEvent:
       m_PersistentCalls:
@@ -32286,6 +32295,64 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1332441859}
   m_SourcePrefab: {fileID: 100100000, guid: 6b5bfd7c586ea36409c9d7d3c71132c2, type: 3}
+--- !u!1 &2073893351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073893352}
+  - component: {fileID: 2073893353}
+  m_Layer: 0
+  m_Name: ContainsFood
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073893352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073893351}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1057715331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2073893353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073893351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44513323b218ba049826813477c045eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1070684830}
+  conversation:
+  - text: Food? In a restauraunt? Absolutely not!
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: We break even on food, but all the money comes from drinks!
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: You idiot!
+    onLineEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!43 &2087580668
 Mesh:
   m_ObjectHideFlags: 0
